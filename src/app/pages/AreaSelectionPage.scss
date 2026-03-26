@@ -1,5 +1,6 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@use 'sass:color';
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
 
 .area-selection-page {
   min-height: 100vh;
@@ -129,11 +130,11 @@
     }
 
     &.yellow {
-      background: linear-gradient(135deg, $yellow 0%, darken($yellow, 15%) 100%);
+      background: linear-gradient(135deg, $yellow 0%, color.adjust($yellow, $lightness: -15%) 100%);
     }
 
     &.red {
-      background: linear-gradient(135deg, $red 0%, darken($red, 15%) 100%);
+      background: linear-gradient(135deg, $red 0%, color.adjust($red, $lightness: -15%) 100%);
     }
   }
 

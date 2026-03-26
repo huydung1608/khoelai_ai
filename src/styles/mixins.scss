@@ -1,4 +1,5 @@
-@import './variables.scss';
+@use 'sass:color';
+@use './variables.scss' as *;
 
 // Flexbox mixins
 @mixin flex-center {
@@ -40,7 +41,7 @@
   color: $dark-text;
 
   &:hover:not(:disabled) {
-    background: darken($yellow, 10%);
+    background: color.adjust($yellow, $lightness: -10%);
     transform: translateY(-2px);
     box-shadow: $shadow-lg;
   }
