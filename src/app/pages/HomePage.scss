@@ -1,0 +1,391 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.home-page {
+  min-height: 100vh;
+  background: $primary-bg;
+}
+
+// Header
+.header {
+  background: $white;
+  box-shadow: $shadow-sm;
+
+  .header-container {
+    max-width: $wide;
+    margin: 0 auto;
+    padding: $spacing-md;
+    @include flex-between;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  .logo-icon {
+    width: 48px;
+    height: 48px;
+    background: $mint-green;
+    border-radius: $radius-md;
+    @include flex-center;
+    color: $white;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  .logo-text {
+    h1 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: $dark-text;
+      margin: 0;
+    }
+
+    p {
+      font-size: 0.75rem;
+      color: $gray-text;
+      margin: 0;
+    }
+  }
+
+  .btn-logout {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-md;
+    background: none;
+    border: none;
+    border-radius: $radius-sm;
+    color: $red;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    &:hover {
+      background: $red-light;
+    }
+  }
+}
+
+// Content Container
+.content-container {
+  max-width: $wide;
+  margin: 0 auto;
+  padding: $spacing-2xl $spacing-md;
+}
+
+// Welcome Section
+.welcome-section {
+  background: linear-gradient(135deg, $mint-green 0%, $mint-green-dark 100%);
+  border-radius: $radius-2xl;
+  padding: $spacing-2xl;
+  color: $white;
+  margin-bottom: $spacing-2xl;
+  box-shadow: $shadow-lg;
+
+  .welcome-header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-sm;
+
+    .emoji {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+  .welcome-text {
+    font-size: 1.125rem;
+    opacity: 0.95;
+    margin-bottom: $spacing-xl;
+  }
+
+  .btn-start {
+    @include button-primary;
+    font-size: 1.125rem;
+    padding: $spacing-lg $spacing-2xl;
+  }
+}
+
+// Stats Grid
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat-card {
+  @include card;
+
+  .stat-header {
+    @include flex-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-md;
+
+    h3 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: $dark-text;
+      margin: 0;
+    }
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-sm;
+    @include flex-center;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    &.activity {
+      background: $yellow-light;
+      color: $yellow;
+    }
+
+    &.time {
+      background: $mint-green-light;
+      color: $mint-green;
+    }
+
+    &.accuracy {
+      background: $red-light;
+      color: $red;
+    }
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $dark-text;
+    margin: 0 0 $spacing-xs;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: $gray-text;
+    margin: 0;
+  }
+}
+
+// Main Grid
+.main-grid {
+  display: grid;
+  gap: $spacing-2xl;
+  margin-bottom: $spacing-2xl;
+
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.section-card {
+  @include card;
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-xl;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: $dark-text;
+      margin: 0;
+    }
+
+    .icon-star,
+    .icon-trend {
+      width: 20px;
+      height: 20px;
+      color: $yellow;
+      fill: $yellow;
+    }
+
+    .icon-trend {
+      color: $mint-green;
+    }
+  }
+}
+
+// Exercise List
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.exercise-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: $light-gray;
+  border: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $transition-normal;
+  text-align: left;
+
+  &:hover {
+    background: $border-gray;
+  }
+
+  .exercise-badge {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, $mint-green 0%, $mint-green-dark 100%);
+    border-radius: $radius-sm;
+    @include flex-center;
+    color: $white;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .exercise-info {
+    flex: 1;
+
+    h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: $dark-text;
+      margin: 0 0 $spacing-xs;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: $gray-text;
+      margin: 0;
+    }
+  }
+
+  .icon-star-fill {
+    width: 20px;
+    height: 20px;
+    color: $yellow;
+    fill: $yellow;
+  }
+}
+
+// Progress Section
+.progress-section {
+  margin-bottom: $spacing-xl;
+
+  .progress-header {
+    @include flex-between;
+    margin-bottom: $spacing-sm;
+    font-size: 0.875rem;
+
+    span:first-child {
+      color: $gray-text;
+    }
+
+    .progress-value {
+      font-weight: 600;
+      color: $mint-green;
+    }
+  }
+
+  .progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background: $border-gray;
+    border-radius: 999px;
+    overflow: hidden;
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, $mint-green 0%, $mint-green-dark 100%);
+      border-radius: 999px;
+      transition: width $transition-slow;
+    }
+  }
+}
+
+// Week Grid
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: $spacing-sm;
+
+  .day-item {
+    text-align: center;
+
+    .day-badge {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: $radius-sm;
+      @include flex-center;
+      margin-bottom: $spacing-xs;
+      background: $border-gray;
+      color: $gray-text;
+
+      &.completed {
+        background: $mint-green;
+        color: $white;
+      }
+
+      span {
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+    }
+
+    .day-check {
+      font-size: 0.75rem;
+      color: $gray-text;
+    }
+  }
+}
+
+// History Section
+.history-section {
+  text-align: center;
+
+  .btn-history {
+    @include button-secondary;
+    font-size: 1rem;
+    padding: $spacing-md $spacing-xl;
+  }
+}
+
+@include mobile {
+  .welcome-section {
+    padding: $spacing-xl;
+
+    .welcome-header h2 {
+      font-size: 1.5rem;
+    }
+
+    .welcome-text {
+      font-size: 1rem;
+    }
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

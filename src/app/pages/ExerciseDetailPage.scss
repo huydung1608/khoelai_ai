@@ -1,0 +1,333 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.exercise-detail-page {
+  min-height: 100vh;
+  background: $primary-bg;
+}
+
+.page-header {
+  background: $white;
+  box-shadow: $shadow-sm;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  .header-container {
+    max-width: $wide;
+    margin: 0 auto;
+    padding: $spacing-md;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  .btn-back {
+    padding: $spacing-sm;
+    background: none;
+    border: none;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      color: $dark-text;
+    }
+
+    &:hover {
+      background: $light-gray;
+    }
+  }
+
+  .header-text {
+    h1 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: $dark-text;
+      margin: 0 0 $spacing-xs;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: $gray-text;
+      margin: 0;
+    }
+  }
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-2xl $spacing-md;
+}
+
+// Video Card
+.video-card {
+  @include card;
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  margin-bottom: $spacing-2xl;
+  padding: 0;
+
+  .video-wrapper {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, $mint-green 0%, $mint-green-dark 100%);
+
+    .video-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.2);
+      @include flex-center;
+
+      .play-button {
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 50%;
+        @include flex-center;
+        cursor: pointer;
+        transition: all $transition-normal;
+        box-shadow: $shadow-lg;
+
+        &:hover {
+          background: $white;
+          transform: scale(1.05);
+        }
+
+        .icon {
+          width: 40px;
+          height: 40px;
+          color: $mint-green;
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+
+  .video-info {
+    padding: $spacing-xl;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $dark-text;
+      margin: 0 0 $spacing-md;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xl;
+      font-size: 0.875rem;
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        color: $gray-text;
+
+        .icon {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .reps-badge {
+        padding: $spacing-sm $spacing-md;
+        background: $mint-green-light;
+        border-radius: $radius-sm;
+
+        span {
+          font-weight: 600;
+          color: $mint-green;
+        }
+      }
+    }
+  }
+}
+
+// Benefits Card
+.benefits-card {
+  @include card;
+  margin-bottom: $spacing-xl;
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: $dark-text;
+    margin: 0 0 $spacing-md;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      color: $mint-green;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: $spacing-md;
+
+      .bullet {
+        width: 8px;
+        height: 8px;
+        background: $mint-green;
+        border-radius: 50%;
+        margin-top: 6px;
+        flex-shrink: 0;
+      }
+
+      span {
+        color: $dark-text;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+// Steps Card
+.steps-card {
+  @include card;
+  margin-bottom: $spacing-xl;
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: $dark-text;
+    margin: 0 0 $spacing-md;
+  }
+
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: $spacing-md;
+
+      .step-number {
+        width: 32px;
+        height: 32px;
+        background: $mint-green;
+        color: $white;
+        border-radius: 50%;
+        @include flex-center;
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+
+      p {
+        color: $dark-text;
+        padding-top: 4px;
+        margin: 0;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+// Precautions Card
+.precautions-card {
+  background: #FFF3CD;
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+  box-shadow: $shadow-md;
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #856404;
+    margin: 0 0 $spacing-md;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: $spacing-md;
+
+      .warning-icon {
+        flex-shrink: 0;
+      }
+
+      span {
+        color: #856404;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+// Start Button
+.btn-start {
+  @include button-primary;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: $spacing-lg;
+}
+
+@include mobile {
+  .video-card {
+    .video-wrapper .video-overlay .play-button {
+      width: 60px;
+      height: 60px;
+
+      .icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .video-info {
+      padding: $spacing-lg;
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      .meta-row {
+        flex-wrap: wrap;
+        gap: $spacing-md;
+      }
+    }
+  }
+}

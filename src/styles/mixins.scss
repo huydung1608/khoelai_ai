@@ -1,0 +1,133 @@
+@import './variables.scss';
+
+// Flexbox mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Button mixin
+@mixin button-base {
+  padding: $spacing-md $spacing-xl;
+  border-radius: $radius-lg;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-normal;
+  border: none;
+  outline: none;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $yellow;
+  color: $dark-text;
+
+  &:hover:not(:disabled) {
+    background: darken($yellow, 10%);
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background: $white;
+  color: $dark-text;
+  border: 2px solid $border-gray;
+
+  &:hover:not(:disabled) {
+    background: $light-gray;
+    border-color: $mint-green;
+  }
+}
+
+// Card mixin
+@mixin card {
+  background: $white;
+  border-radius: $radius-xl;
+  padding: $spacing-xl;
+  box-shadow: $shadow-md;
+  transition: all $transition-normal;
+}
+
+@mixin card-hover {
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Input mixin
+@mixin input-base {
+  width: 100%;
+  padding: $spacing-md;
+  border: 2px solid $border-gray;
+  border-radius: $radius-md;
+  font-size: 1rem;
+  transition: all $transition-fast;
+
+  &:focus {
+    outline: none;
+    border-color: $mint-green;
+    box-shadow: 0 0 0 3px rgba($mint-green, 0.1);
+  }
+
+  &::placeholder {
+    color: $gray-text;
+  }
+}
+
+// Responsive mixins
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @media (min-width: $wide) {
+    @content;
+  }
+}
+
+// Gradient mixins
+@mixin gradient-mint {
+  background: linear-gradient(135deg, $mint-green-light 0%, rgba($mint-green-dark, 0.1) 100%);
+}
+
+@mixin gradient-yellow {
+  background: linear-gradient(135deg, $yellow-light 0%, rgba($yellow, 0.2) 100%);
+}
+
+@mixin gradient-overlay {
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+}

@@ -1,0 +1,232 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.area-selection-page {
+  min-height: 100vh;
+  background: $primary-bg;
+}
+
+// Header
+.page-header {
+  background: $white;
+  box-shadow: $shadow-sm;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  .header-container {
+    max-width: $wide;
+    margin: 0 auto;
+    padding: $spacing-md;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  .btn-back {
+    padding: $spacing-sm;
+    background: none;
+    border: none;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      color: $dark-text;
+    }
+
+    &:hover {
+      background: $light-gray;
+    }
+  }
+
+  .header-text {
+    h1 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: $dark-text;
+      margin: 0 0 $spacing-xs;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: $gray-text;
+      margin: 0;
+    }
+  }
+}
+
+// Content Container
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-2xl $spacing-md;
+}
+
+// Hint Box
+.hint-box {
+  @include gradient-mint;
+  border-radius: $radius-lg;
+  border: 2px solid rgba($mint-green, 0.3);
+  padding: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+  text-align: center;
+
+  p {
+    color: $dark-text;
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .hint-icon {
+    margin-right: $spacing-xs;
+  }
+
+  .hint-label {
+    font-weight: 600;
+    margin-right: $spacing-xs;
+  }
+}
+
+// Areas Grid
+.areas-grid {
+  display: grid;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-2xl * 1.5;
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.area-card {
+  @include card;
+  @include card-hover;
+  border-radius: $radius-2xl;
+  padding: $spacing-2xl;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+
+  .area-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: $radius-lg;
+    @include flex-center;
+    margin: 0 auto $spacing-xl;
+    transition: transform $transition-normal;
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      color: $white;
+    }
+
+    &.mint {
+      background: linear-gradient(135deg, $mint-green 0%, $mint-green-dark 100%);
+    }
+
+    &.yellow {
+      background: linear-gradient(135deg, $yellow 0%, darken($yellow, 15%) 100%);
+    }
+
+    &.red {
+      background: linear-gradient(135deg, $red 0%, darken($red, 15%) 100%);
+    }
+  }
+
+  &:hover .area-icon {
+    transform: scale(1.1);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $dark-text;
+    margin: 0 0 $spacing-md;
+  }
+
+  p {
+    color: $gray-text;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// Info Grid
+.info-grid {
+  display: grid;
+  gap: $spacing-xl;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.info-card {
+  @include card;
+
+  .info-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: $radius-md;
+    @include flex-center;
+    margin-bottom: $spacing-md;
+
+    span {
+      font-size: 1.5rem;
+    }
+
+    &.mint {
+      background: $mint-green-light;
+    }
+
+    &.yellow {
+      background: $yellow-light;
+    }
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $dark-text;
+    margin: 0 0 $spacing-sm;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: $gray-text;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+@include mobile {
+  .areas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .area-card {
+    padding: $spacing-xl;
+
+    .area-icon {
+      width: 60px;
+      height: 60px;
+
+      .icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+}

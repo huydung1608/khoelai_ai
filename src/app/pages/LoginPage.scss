@@ -1,0 +1,126 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.login-page {
+  min-height: 100vh;
+  background: $primary-bg;
+  @include flex-center;
+  padding: $spacing-md;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 450px;
+}
+
+.login-card {
+  @include card;
+  border-radius: $radius-2xl;
+}
+
+.logo-section {
+  text-align: center;
+  margin-bottom: $spacing-2xl;
+
+  .logo-icon {
+    width: 80px;
+    height: 80px;
+    background: $mint-green;
+    border-radius: $radius-lg;
+    @include flex-center;
+    margin: 0 auto $spacing-lg;
+    color: $white;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  .logo-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $dark-text;
+    margin-bottom: $spacing-sm;
+  }
+
+  .logo-subtitle {
+    color: $gray-text;
+    font-size: 1rem;
+  }
+}
+
+.login-form {
+  .form-group {
+    margin-bottom: $spacing-lg;
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: $dark-text;
+      margin-bottom: $spacing-sm;
+    }
+
+    input {
+      @include input-base;
+    }
+  }
+
+  .btn-login {
+    @include button-primary;
+    width: 100%;
+    font-size: 1rem;
+    padding: $spacing-lg;
+  }
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: $spacing-lg;
+
+  .btn-link {
+    background: none;
+    border: none;
+    color: $mint-green;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all $transition-fast;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.form-register {
+  text-align: center;
+  margin-top: $spacing-md;
+  font-size: 0.875rem;
+
+  span {
+    color: $gray-text;
+  }
+
+  .btn-link-bold {
+    background: none;
+    border: none;
+    color: $mint-green;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@include mobile {
+  .login-container {
+    max-width: 100%;
+  }
+
+  .logo-section .logo-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+}

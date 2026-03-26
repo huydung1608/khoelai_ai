@@ -1,0 +1,313 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.dashboard-page {
+  min-height: 100vh;
+  background: $primary-bg;
+}
+
+.page-header {
+  background: $white;
+  box-shadow: $shadow-sm;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  .header-container {
+    max-width: $wide;
+    margin: 0 auto;
+    padding: $spacing-md;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  .btn-back {
+    padding: $spacing-sm;
+    background: none;
+    border: none;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      color: $dark-text;
+    }
+
+    &:hover {
+      background: $light-gray;
+    }
+  }
+
+  .header-text {
+    h1 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: $dark-text;
+      margin: 0 0 $spacing-xs;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: $gray-text;
+      margin: 0;
+    }
+  }
+}
+
+.content-container {
+  max-width: $wide;
+  margin: 0 auto;
+  padding: $spacing-2xl $spacing-md;
+}
+
+// Overview Grid
+.overview-grid {
+  display: grid;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.overview-card {
+  @include card;
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+
+    .icon-wrapper {
+      width: 40px;
+      height: 40px;
+      border-radius: $radius-sm;
+      @include flex-center;
+
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      &.trend {
+        background: $mint-green-light;
+        color: $mint-green;
+      }
+
+      &.time {
+        background: $yellow-light;
+        color: $yellow;
+      }
+
+      &.calendar {
+        background: $red-light;
+        color: $red;
+      }
+
+      &.award {
+        background: $purple-light;
+        color: $purple;
+      }
+    }
+
+    span {
+      font-size: 0.875rem;
+      color: $gray-text;
+    }
+  }
+
+  .value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $dark-text;
+    margin: 0;
+  }
+}
+
+// Charts Grid
+.charts-grid {
+  display: grid;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.chart-card {
+  @include card;
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: $dark-text;
+    margin: 0 0 $spacing-xl;
+  }
+}
+
+// Achievements Card
+.achievements-card {
+  @include card;
+  margin-bottom: $spacing-2xl;
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: $dark-text;
+    margin: 0 0 $spacing-xl;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      color: $yellow;
+    }
+  }
+
+  .achievements-grid {
+    display: grid;
+    gap: $spacing-md;
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .achievement-item {
+      @include gradient-mint;
+      border: 2px solid rgba($mint-green, 0.3);
+      border-radius: $radius-md;
+      padding: $spacing-md;
+
+      .achievement-icon {
+        font-size: 2.5rem;
+        margin-bottom: $spacing-md;
+      }
+
+      h4 {
+        font-size: 1rem;
+        font-weight: bold;
+        color: $dark-text;
+        margin: 0 0 $spacing-xs;
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: $gray-text;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// History Card
+.history-card {
+  @include card;
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: $dark-text;
+    margin: 0 0 $spacing-xl;
+  }
+
+  .workouts-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    .workout-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: $spacing-md;
+      background: $light-gray;
+      border-radius: $radius-md;
+      transition: all $transition-normal;
+
+      &:hover {
+        background: $border-gray;
+      }
+
+      .workout-info {
+        flex: 1;
+
+        h4 {
+          font-size: 1rem;
+          font-weight: 600;
+          color: $dark-text;
+          margin: 0 0 $spacing-xs;
+        }
+
+        p {
+          font-size: 0.875rem;
+          color: $gray-text;
+          margin: 0;
+        }
+      }
+
+      .workout-stats {
+        display: flex;
+        align-items: center;
+        gap: $spacing-xl;
+
+        .stat {
+          text-align: center;
+
+          .label {
+            font-size: 0.875rem;
+            color: $gray-text;
+            margin: 0 0 $spacing-xs;
+          }
+
+          .value {
+            font-size: 1rem;
+            font-weight: bold;
+            color: $dark-text;
+            margin: 0;
+
+            &.accuracy {
+              color: $mint-green;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievements-card .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .history-card .workouts-list .workout-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $spacing-md;
+
+    .workout-stats {
+      justify-content: space-around;
+      gap: $spacing-md;
+    }
+  }
+}
